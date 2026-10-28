@@ -114,7 +114,7 @@ The models have been evaluated using historical chronological validation, but th
 Replace the placeholder with your actual GitHub repository URL after publishing the project.
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/OM12-11/cropai.git
 cd cropai
 ```
 
