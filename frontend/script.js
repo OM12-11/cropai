@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://your-service-name.onrender.com";
 
 const form = document.getElementById("prediction-form");
 const cropInput = document.getElementById("crop");

@@ -39,7 +39,7 @@ def load_historical_data():
 #for connectoing the frontend with backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],
+    allow_origins=["https://capable-vacherin-c0ae15.netlify.app/"],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
