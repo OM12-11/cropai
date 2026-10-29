@@ -3,7 +3,7 @@ from pathlib import Path
 from fastapi import Query
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from prediction import predict_yield
+from src.prediction import predict_yield
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
