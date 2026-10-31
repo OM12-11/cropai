@@ -4,8 +4,6 @@ CropYield AI is a machine-learning web application that estimates crop yields in
 
 > **Project status:** Working prototype. Predictions for future years are extrapolations of historical trends and should not be treated as guaranteed agricultural forecasts.
 > deployed links
-> 1) frontend: https://capable-vacherin-c0ae15.netlify.app
-> 2) backend: https://cropyield-ai-api.onrender.com/
 
 ## Features
 
