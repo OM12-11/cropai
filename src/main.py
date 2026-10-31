@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from src.prediction import predict_yield
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(
 title="CropYield AI",
@@ -28,6 +28,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # Path to the processed dataset
 DATA_PATH = PROJECT_ROOT / "data" / "processed" / "india_crop_yield_annual.csv"
+
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
 
 # Load historical crop-yield records
 def load_historical_data():
@@ -54,12 +56,7 @@ class PredictionRequest(BaseModel):
     crop: str = Field(..., description="Supported crop name")
     year: int = Field(..., ge=1990, description="Prediction year")
 
-@app.get("/")
-def home():
-        return {
-        "message": "Welcome to CropYield AI API",
-        "status": "running"
-        }
+
 # Endpoint to retrieve supported crops
 @app.get("/crops")
 def get_supported_crops():
@@ -118,3 +115,10 @@ def get_historical_yield(crop: str):
             status_code=500,
             detail=str(error)
         )
+
+# Serve the frontend application
+app.mount(
+    "/",
+    StaticFiles(directory=FRONTEND_DIR, html=True),
+    name="frontend"
+)
