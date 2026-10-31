@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://cropyield-ai-api.onrender.com/";
+const API_BASE_URL = "https://cropyield-ai-api.onrender.com";
 
 const form = document.getElementById("prediction-form");
 const cropInput = document.getElementById("crop");
