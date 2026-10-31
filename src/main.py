@@ -63,7 +63,7 @@ def home():
 # Endpoint to retrieve supported crops
 @app.get("/crops")
 def get_supported_crops():
-        from prediction import SUPPORTED_CROPS
+        from src.prediction import SUPPORTED_CROPS
         return {"supported_crops": SUPPORTED_CROPS}
 
 # Endpoint for predicting crop yield
