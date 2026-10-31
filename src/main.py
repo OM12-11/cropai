@@ -6,11 +6,22 @@ from pydantic import BaseModel, Field
 from src.prediction import predict_yield
 from fastapi.middleware.cors import CORSMiddleware
 
+
 app = FastAPI(
 title="CropYield AI",
 description="An API for predicting crop yields in India using machine learning.",
 version="1.0.0"
 )
+
+#for connectoing the frontend with backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://unique-paletas-4c1fc8.netlify.app"],
+    allow_credentials=False,
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type"],
+)
+
 
 # Locate the project root
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -36,14 +47,7 @@ def load_historical_data():
 
     return df
 
-#for connectoing the frontend with backend
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://capable-vacherin-c0ae15.netlify.app/"],
-    allow_credentials=False,
-    allow_methods=["GET", "POST"],
-    allow_headers=["Content-Type"],
-)
+
 
 #backend endpoints for the frontend to access the data and make predictions
 class PredictionRequest(BaseModel):
