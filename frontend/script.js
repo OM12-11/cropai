@@ -68,7 +68,7 @@ try {
     if (error instanceof TypeError) {
         showError(
             "Could not connect to the API. Check that the FastAPI " +
-            "server is running at https://cropyield-ai-api.onrender.com/"
+            "server is running at https://cropyield-ai-api.onrender.com"
         );
     } else {
         showError(error.message || "An unexpected error occurred.");
